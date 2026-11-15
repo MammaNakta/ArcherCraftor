@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace ArcherCraft.Combat
+namespace ArcherCraftor.Combat
 {
     public interface IDamageable
     {

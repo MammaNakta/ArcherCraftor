@@ -1,4 +1,4 @@
-# ArcherCraft (아처크래프트) - 기초 프로토타입 뼈대
+# ArcherCraftor (아처크래프터) - 기초 프로토타입 뼈대
 
 > 《이스케이프 프롬 덕코프(Escape from Duckov)》 스타일의 **3D 로우폴리 탑다운 쿼터뷰** + **궁술 탄막 상쇄(카운터샷) 액션** 프로토타입 프로젝트입니다.
 
@@ -21,10 +21,10 @@
 ## 🚀 빠른 시작 가이드 (Unity Editor)
 
 1. **Unity Hub**를 실행합니다.
-2. **[열기(Open)]** 버튼을 누르고 이 폴더(`c:\Users\niji0\Desktop\ArcherCraft`)를 선택합니다.
+2. **[열기(Open)]** 버튼을 누르고 이 폴더(`c:\Users\niji0\Desktop\ArcherCraftor`)를 선택합니다.
    - 권장 에디터 버전: **Unity 6 (6000.3.22f1)** 또는 2022.3 LTS 이상
 3. 프로젝트가 로드된 후 상단 메뉴바를 확인합니다:
-   - **`[ArcherCraft] -> [Setup Prototype Sandbox Scene]`** 클릭!
+   - **`[ArcherCraftor] -> [Setup Prototype Sandbox Scene]`** 클릭!
 4. 클릭 한 번으로 바닥, 장애물 기둥, 궁수 플레이어, 적 골렘, 탄막/화살 프리팹, 쿼터뷰 카메라, FOV 시야각 메시, 조준선 UI가 자동으로 완벽하게 구성되어 **`Assets/Scenes/PrototypeSandbox.unity`**로 저장됩니다.
 5. 에디터 상단의 **[ ▶ Play ]** 버튼을 누르면 즉시 플레이 가능합니다!
 
@@ -55,7 +55,7 @@ Assets/
 │   │   ├── AimReticleUI.cs        # 마우스 크로스헤어, 사거리 링, 차징 게이지 UI
 │   │   └── InGameHUD.cs           # HP 슬라이더 및 플레이어 상태
 │   └── Editor/
-│       └── ArcherCraftSceneBuilder.cs # 1클릭 자동 프로토타입 씬 빌더 도구
+│       └── ArcherCraftorSceneBuilder.cs # 1클릭 자동 프로토타입 씬 빌더 도구
 ├── Prefabs/                       # 자동 생성된 화살, 탄환, 스파크 프리팹
 ├── Materials/                     # URP 셰이더 기반 컬러 머티리얼
 └── Scenes/                        # 샌드박스 씬

@@ -1,8 +1,8 @@
 using System.Collections;
 using UnityEngine;
-using ArcherCraft.Combat;
+using ArcherCraftor.Combat;
 
-namespace ArcherCraft.Enemy
+namespace ArcherCraftor.Enemy
 {
     public class EnemyBulletEmitter : MonoBehaviour
     {

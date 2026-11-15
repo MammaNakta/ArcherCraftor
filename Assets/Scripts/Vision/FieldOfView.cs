@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ArcherCraft.Vision
+namespace ArcherCraftor.Vision
 {
     [RequireComponent(typeof(MeshFilter), typeof(MeshRenderer))]
     public class FieldOfView : MonoBehaviour

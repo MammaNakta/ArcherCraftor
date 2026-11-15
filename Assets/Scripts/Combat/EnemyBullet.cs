@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace ArcherCraft.Combat
+namespace ArcherCraftor.Combat
 {
     [RequireComponent(typeof(SphereCollider))]
     public class EnemyBullet : MonoBehaviour

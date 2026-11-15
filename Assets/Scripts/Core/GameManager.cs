@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace ArcherCraft.Core
+namespace ArcherCraftor.Core
 {
     public class GameManager : MonoBehaviour
     {

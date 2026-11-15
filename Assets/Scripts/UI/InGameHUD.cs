@@ -1,8 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
-using ArcherCraft.Combat;
+using ArcherCraftor.Combat;
 
-namespace ArcherCraft.UI
+namespace ArcherCraftor.UI
 {
     public class InGameHUD : MonoBehaviour
     {

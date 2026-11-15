@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace ArcherCraft.Core
+namespace ArcherCraftor.Core
 {
     public class TopDownCameraFollow : MonoBehaviour
     {

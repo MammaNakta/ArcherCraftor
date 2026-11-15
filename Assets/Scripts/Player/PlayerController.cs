@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace ArcherCraft.Player
+namespace ArcherCraftor.Player
 {
     [RequireComponent(typeof(CharacterController))]
     public class PlayerController : MonoBehaviour

@@ -1,4 +1,4 @@
-# ArcherCraft (아처크래프트) - 스토리 & 세계관 기획 문서
+# ArcherCraftor (아처크래프터) - 스토리 & 세계관 기획 문서
 
 > 📖 관련 기획 문서: [게임 시스템 & 기획 컨셉 (GameConcept.md)](GameConcept.md)
 

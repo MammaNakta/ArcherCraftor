@@ -1,8 +1,8 @@
 using System;
 using UnityEngine;
-using ArcherCraft.Combat;
+using ArcherCraftor.Combat;
 
-namespace ArcherCraft.Player
+namespace ArcherCraftor.Player
 {
     public class PlayerBow : MonoBehaviour
     {

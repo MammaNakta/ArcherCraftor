@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace ArcherCraft.Combat
+namespace ArcherCraftor.Combat
 {
     public class Health : MonoBehaviour, IDamageable
     {

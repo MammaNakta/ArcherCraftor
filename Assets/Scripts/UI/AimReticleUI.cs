@@ -1,8 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
-using ArcherCraft.Player;
+using ArcherCraftor.Player;
 
-namespace ArcherCraft.UI
+namespace ArcherCraftor.UI
 {
     public class AimReticleUI : MonoBehaviour
     {

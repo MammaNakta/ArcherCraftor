@@ -2,18 +2,18 @@ using UnityEngine;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine.UI;
-using ArcherCraft.Combat;
-using ArcherCraft.Player;
-using ArcherCraft.Enemy;
-using ArcherCraft.Core;
-using ArcherCraft.Vision;
-using ArcherCraft.UI;
+using ArcherCraftor.Combat;
+using ArcherCraftor.Player;
+using ArcherCraftor.Enemy;
+using ArcherCraftor.Core;
+using ArcherCraftor.Vision;
+using ArcherCraftor.UI;
 
-namespace ArcherCraft.Editor
+namespace ArcherCraftor.Editor
 {
-    public static class ArcherCraftSceneBuilder
+    public static class ArcherCraftorSceneBuilder
     {
-        [MenuItem("ArcherCraft/Setup Prototype Sandbox Scene")]
+        [MenuItem("ArcherCraftor/Setup Prototype Sandbox Scene")]
         public static void SetupPrototypeScene()
         {
             // 1. 새 씬 생성
@@ -102,7 +102,7 @@ namespace ArcherCraft.Editor
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
 
-            EditorUtility.DisplayDialog("ArcherCraft Setup Complete",
+            EditorUtility.DisplayDialog("ArcherCraftor Setup Complete",
                 "프로토타입 샌드박스 씬(PrototypeSandbox.unity) 생성이 완료되었습니다!\n\n" +
                 "▶ 조작법:\n" +
                 "- WASD: 이동\n" +

@@ -1,7 +1,7 @@
-using UnityEngine;
-using ArcherCraft.Combat;
+﻿using UnityEngine;
+using ArcherCraftor.Combat;
 
-namespace ArcherCraft.Enemy
+namespace ArcherCraftor.Enemy
 {
     [RequireComponent(typeof(EnemyBulletEmitter))]
     public class EnemyAI : MonoBehaviour
@@ -26,6 +26,13 @@ namespace ArcherCraft.Enemy
         private Transform playerTarget;
         private EnemyBulletEmitter emitter;
         private float attackTimer;
+        private float retargetTimer;
+        private const float RetargetInterval = 1.0f;
+
+        public void SetTarget(Transform target)
+        {
+            playerTarget = target;
+        }
 
         private void Awake()
         {
@@ -33,6 +40,11 @@ namespace ArcherCraft.Enemy
         }
 
         private void Start()
+        {
+            TryFindPlayerTarget();
+        }
+
+        private void TryFindPlayerTarget()
         {
             GameObject player = GameObject.FindGameObjectWithTag("Player");
             if (player != null)
@@ -45,8 +57,12 @@ namespace ArcherCraft.Enemy
         {
             if (playerTarget == null)
             {
-                GameObject player = GameObject.FindGameObjectWithTag("Player");
-                if (player != null) playerTarget = player.transform;
+                retargetTimer -= Time.deltaTime;
+                if (retargetTimer <= 0f)
+                {
+                    retargetTimer = RetargetInterval;
+                    TryFindPlayerTarget();
+                }
                 return;
             }
 

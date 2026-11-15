@@ -1,0 +1,20 @@
+{
+    "name": "ArcherCraftor.Editor",
+    "rootNamespace": "ArcherCraftor.Editor",
+    "references": [
+        "ArcherCraftor.Runtime",
+        "Unity.TextMeshPro",
+        "UnityEngine.UI"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
