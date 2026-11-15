@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEditor;
 using UnityEditor.SceneManagement;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 using ArcherCraftor.Combat;
 using ArcherCraftor.Player;
@@ -23,6 +25,7 @@ namespace ArcherCraftor.Editor
             EnsureTagExists("Player");
             EnsureTagExists("Enemy");
             EnsureTagExists("Obstacle");
+            EnsureURPPipelineAsset();
 
             // 3. 라이트 & 게임 매니저 생성
             GameObject dirLight = new GameObject("Directional Light");
@@ -30,6 +33,7 @@ namespace ArcherCraftor.Editor
             lightComp.type = LightType.Directional;
             lightComp.color = new Color(1f, 0.96f, 0.9f);
             lightComp.intensity = 1.1f;
+            dirLight.AddComponent<UniversalAdditionalLightData>();
             dirLight.transform.rotation = Quaternion.Euler(50f, -30f, 0f);
 
             GameObject gmObj = new GameObject("GameManager");
@@ -130,7 +134,9 @@ namespace ArcherCraftor.Editor
             emission.SetBursts(new ParticleSystem.Burst[] { new ParticleSystem.Burst(0f, 25) });
 
             spark.AddComponent<ImpactEffect>();
-            return PrefabUtility.SaveAsPrefabAsset(spark, "Assets/Prefabs/FX_ParrySpark.prefab");
+            GameObject prefab = PrefabUtility.SaveAsPrefabAsset(spark, "Assets/Prefabs/FX_ParrySpark.prefab");
+            Object.DestroyImmediate(spark);
+            return prefab;
         }
 
         private static GameObject CreateEnemyBulletPrefab(GameObject sparkPrefab)
@@ -154,7 +160,9 @@ namespace ArcherCraftor.Editor
             so.FindProperty("parrySparkEffectPrefab").objectReferenceValue = sparkPrefab;
             so.ApplyModifiedProperties();
 
-            return PrefabUtility.SaveAsPrefabAsset(bulletObj, "Assets/Prefabs/EnemyBullet.prefab");
+            GameObject prefab = PrefabUtility.SaveAsPrefabAsset(bulletObj, "Assets/Prefabs/EnemyBullet.prefab");
+            Object.DestroyImmediate(bulletObj);
+            return prefab;
         }
 
         private static GameObject CreateArrowPrefab(GameObject sparkPrefab)
@@ -182,7 +190,9 @@ namespace ArcherCraftor.Editor
             so.FindProperty("parrySparkPrefab").objectReferenceValue = sparkPrefab;
             so.ApplyModifiedProperties();
 
-            return PrefabUtility.SaveAsPrefabAsset(arrowObj, "Assets/Prefabs/ArrowProjectile.prefab");
+            GameObject prefab = PrefabUtility.SaveAsPrefabAsset(arrowObj, "Assets/Prefabs/ArrowProjectile.prefab");
+            Object.DestroyImmediate(arrowObj);
+            return prefab;
         }
 
         private static GameObject CreatePlayerObject(GameObject arrowPrefab)
@@ -235,6 +245,7 @@ namespace ArcherCraftor.Editor
             GameObject camObj = new GameObject("Main Camera");
             camObj.tag = "MainCamera";
             var cam = camObj.AddComponent<Camera>();
+            camObj.AddComponent<UniversalAdditionalCameraData>();
             camObj.AddComponent<AudioListener>();
 
             var follow = camObj.AddComponent<TopDownCameraFollow>();
@@ -316,6 +327,32 @@ namespace ArcherCraftor.Editor
             tagsProp.InsertArrayElementAtIndex(tagsProp.arraySize);
             tagsProp.GetArrayElementAtIndex(tagsProp.arraySize - 1).stringValue = tag;
             tagManager.ApplyModifiedProperties();
+        }
+
+        private static void EnsureURPPipelineAsset()
+        {
+            if (GraphicsSettings.defaultRenderPipeline is UniversalRenderPipelineAsset existingUrp)
+            {
+                if (QualitySettings.renderPipeline == null)
+                {
+                    QualitySettings.renderPipeline = existingUrp;
+                }
+                return;
+            }
+
+            const string urpAssetPath = "Assets/UniversalRenderPipelineAsset.asset";
+            var urpAsset = AssetDatabase.LoadAssetAtPath<UniversalRenderPipelineAsset>(urpAssetPath);
+            if (urpAsset == null)
+            {
+                urpAsset = UniversalRenderPipelineAsset.Create();
+                AssetDatabase.CreateAsset(urpAsset, urpAssetPath);
+                urpAsset.LoadBuiltinRendererData();
+                EditorUtility.SetDirty(urpAsset);
+                AssetDatabase.SaveAssets();
+            }
+
+            GraphicsSettings.defaultRenderPipeline = urpAsset;
+            QualitySettings.renderPipeline = urpAsset;
         }
     }
 }
