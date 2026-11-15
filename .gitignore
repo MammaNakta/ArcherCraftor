@@ -90,3 +90,8 @@ ehthumbs.db
 Thumbs.db
 [Dd]esktop.ini
 .directory
+
+# [External Heavy Assets (Local Folder / Manual Archive Share)]
+/[Aa]ssets/ExternalAssets
+/[Aa]ssets/ExternalAssets/
+/[Aa]ssets/ExternalAssets.meta

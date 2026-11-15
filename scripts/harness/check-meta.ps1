@@ -27,7 +27,7 @@ $items = Get-ChildItem -Path $targetAssets -Recurse | Where-Object {
     $rel = $_.FullName.Substring($targetAssets.Length).TrimStart('\', '/')
     $segments = $rel -split '[\\/]'
     foreach ($seg in $segments) {
-        if ($seg.StartsWith('.') -or $seg.EndsWith('~')) { return $false }
+        if ($seg.StartsWith('.') -or $seg.EndsWith('~') -or $seg -ieq 'desktop.ini' -or $seg -ieq 'Thumbs.db') { return $false }
     }
     return $true
 }
