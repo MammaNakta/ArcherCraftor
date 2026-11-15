@@ -3,6 +3,7 @@
     "rootNamespace": "ArcherCraftor.Tests.PlayMode",
     "references": [
         "ArcherCraftor.Runtime",
+        "ArcherCraftor.Tests.Harness",
         "UnityEngine.TestRunner"
     ],
     "includePlatforms": [],

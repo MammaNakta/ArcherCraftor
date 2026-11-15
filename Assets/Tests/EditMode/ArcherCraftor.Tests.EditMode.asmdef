@@ -3,6 +3,7 @@
     "rootNamespace": "ArcherCraftor.Tests.EditMode",
     "references": [
         "ArcherCraftor.Runtime",
+        "ArcherCraftor.Tests.Harness",
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner"
     ],

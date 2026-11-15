@@ -1,0 +1,18 @@
+{
+    "name": "ArcherCraftor.Tests.Harness",
+    "rootNamespace": "ArcherCraftor.Tests.Harness",
+    "references": [
+        "ArcherCraftor.Runtime"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [
+        "UNITY_INCLUDE_TESTS"
+    ],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
